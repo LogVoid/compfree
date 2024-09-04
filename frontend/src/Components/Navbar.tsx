@@ -1,11 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchField from './SearchField';
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="fixed w-full bg-black text-white p-4">
       <div className="flex items-center">
-        <h1>Compfree</h1>
+      	<button className="bg-transparent border-none cursor-pointer hover:underline" onClick={() => navigate('/')}>
+          Compfree
+	</button>
 	<div className="flex-grow flex justify-center">
 	  <SearchField/>
 	</div>
