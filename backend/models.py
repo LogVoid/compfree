@@ -5,4 +5,5 @@ class Product(db.Model):
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=True)
     img = db.Column(db.String(255), nullable=True)
+    price = db.Column(db.Float, nullable=False)
 
