@@ -25,14 +25,17 @@ def get_product(pid):
         product = Product.query.get(pid)
         if product is None:
             return jsonify(message="Product not found."), 404
-        
-        return jsonify({
-            "id": product.id,
-            "name": product.name,
-            "description": product.description,
-            "img": product.img,
-            "price": product.price
-        }), 200
+
+        return jsonify(
+            message="Product fetched successfully.",
+            product={
+                "id": product.id,
+                "name": product.name,
+                "description": product.description,
+                "img": product.img,
+                "price": product.price
+            }
+        ), 200
     except Exception as e:
         return jsonify(message=f"Failed to fetch product: {e}"), 500
 
