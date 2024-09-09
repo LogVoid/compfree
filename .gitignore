@@ -21,3 +21,4 @@ frontend/*.sw?
 backend/instance
 backend/__pycache__
 backend/venv
+backend/product_images
