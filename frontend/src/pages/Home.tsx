@@ -10,7 +10,8 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/v1/products');
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
+        const response = await fetch(`${backendUrl}/api/v1/products`);
         const data = await response.json();
         if (data.products) {
           setProducts(data.products);
@@ -37,4 +38,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
