@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, send_from_directory
 from config import app, db
 from models import Product
 
@@ -39,3 +39,19 @@ def get_product(pid):
     except Exception as e:
         return jsonify(message=f"Failed to fetch product: {e}"), 500
 
+@app.route('/api/v1/products/<int:pid>/image', methods=['GET'])
+def get_img(pid):
+    try:
+        product = Product.query.get(pid)
+        if product is None:
+            return jsonify(message="Product not found."), 404
+
+        if product.img is None:
+            return jsonify(message="This product is not associated with a image."), 404
+        
+        try:
+            return send_from_directory(app.config['UPLOAD_FOLDER'], product.img, as_attachment=True)
+        except Exception as e:
+            return jsonify(message=f"Unexpected error: {e}"), 500
+    except Exception as e:
+        return jsonify(message=f"Failed to fetch product: {e}"), 500
