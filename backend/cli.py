@@ -61,10 +61,10 @@ def parse_args() -> argparse.Namespace:
             "help": "Edit an existing product",
             "args": [
                 ("id", int, "The ID of the product to edit (int)"),
-                ("name", str, "The new name of the product (str)"),
-                ("description", str, "The new description of the product (str)"),
-                ("img", str, "The new image URL of the product (str)"),
-                ("price", float, "The new price of the product (float)")
+                ("--name", str, "The new name of the product (str)"),
+                ("--description", str, "The new description of the product (str)"),
+                ("--img", str, "The new image URL of the product (str)"),
+                ("--price", float, "The new price of the product (float)")
             ]
         },
         "delete": {
