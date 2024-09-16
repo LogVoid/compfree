@@ -8,7 +8,7 @@ const Product: React.FC<ProductItem> = ({id, name, description, img, price}) => 
 
   return (
     <Link to={`/product/${id}`} className="border rounded-lg p-4 shadow-md">
-      <img src={imgUrl} alt="Logo"/>
+      <img src={imgUrl} alt="Logo" className="w-[30vw] h-[20vw]"/>
       <div>
         <h2 className="text-xl font-bold">
           {name}
